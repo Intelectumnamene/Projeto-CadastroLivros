@@ -1,0 +1,40 @@
+<style>
+    .exclusao-form {
+      width: 50%;
+      margin: auto;
+      text-align: center;
+    }
+  
+    h1 {
+      color: #333;
+    }
+  
+    .btn-cancelar,
+    .btn-confirmar {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  
+    .btn-cancelar:hover,
+    .btn-confirmar:hover {
+      background-color: #45a049;
+    }
+  
+    .btn-cancelar {
+      margin-right: 10px;
+    }
+  </style>
+  
+
+<form method='POST' class="exclusao-form">
+    {% csrf_token %}
+    <h1>Confirmar exclusão do livro: {{ item.meus_livros }}</h1>
+    <button class="btn-cancelar"><a href="{% url 'livros_lidos' %}">Cancelar</a></button>
+    <button type="submit" class="btn-confirmar">Confirmar</button>
+  </form>
+  

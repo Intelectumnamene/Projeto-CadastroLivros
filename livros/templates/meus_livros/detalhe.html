@@ -1,0 +1,30 @@
+{% extends 'meus_livros/base.html' %}
+{% block conteudo %}
+<h1 style= 'text-align: center;'>Detalhes do Livro</h1>
+
+<div class='container'>    
+    <table class='table table-hover table-bordered'> 
+        <tr>
+            <th>Id</th>
+            <th>Meus Livros</th>
+            <th>Data Inicio</th>
+            <th>Data Termino</th>
+            <th>Lido</th>
+            <th>Resumo</th>  
+        </tr>
+        <tr>
+            <td>{{dados.id}}</td>
+            <td>{{dados.meus_livros}}</td>
+            <td>{{dados.data_inicio}}</td>
+            <td>{{dados.data_termino}}</td>
+            <td>{{dados.lido}}</td>
+            <td>{{dados.resumo}}</td>
+            
+            
+            <button class= 'btn btn-success' style='margin-bottom: 10px;'><a style='color: white;' href="{% url 'novo_livro' %}">Novo Livro</a> </button>
+            
+        </tr>
+    </table>
+</div>
+
+{% endblock %}
