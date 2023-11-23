@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from livros import views
-
+from usuarios import views as usuarios_views
+from django.contrib.auth import views as auth_views
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('conta/',usuarios_views.novo_usuario,name='novo_usuario'),
+    path('login/',auth_views.LoginView.as_view(template_name='usuarios/login.html'),name='login'),
+    path('logout/',auth_views.LogoutView.as_view(template_name='usuarios/logout.html'),name='logout'),
     path("motivos_para_ler/", views.motivos_para_ler, name="motivos_para_ler"),
     path("", views.livros_lidos, name="livros_lidos"),
     path("contato/", views.pagina_contato, name="contato"),

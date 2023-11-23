@@ -1,0 +1,56 @@
+{% extends 'meus_livros/base.html' %}
+{% load crispy_forms_tags %}
+{% block conteudo %}
+<style>
+    .exclusao-form {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    /* Botão Criar Novo Usuário */
+    .btn-criar {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: block; /* Exibido como bloco para ocupar toda a largura disponível */
+        margin-bottom: 10px; /* Espaçamento abaixo do botão */
+    }
+
+    .btn-criar:hover {
+        background-color: #45a049;
+    }
+
+    /* Link "Já possui uma conta? Entre aqui!" */
+    .link-entrar {
+        color: #333;
+        text-decoration: none;
+        display: block; /* Exibido como bloco para ocupar toda a largura disponível */
+    }
+
+    .link-entrar:hover {
+        text-decoration: underline; /* Sublinhado ao passar o mouse */
+    }
+</style>
+<div class="container">
+
+    <h1>Cadastrar novo usuário</h1>
+    <form method='POST'>
+        {% csrf_token %}
+        
+        {{ formulario | crispy }}
+        
+        <button class="btn btn-primary" type="submit">Criar novo usuário</button>
+        <a href="{% url 'login' %}">Já possui uma conta? Entre aqui!</a>
+    </form>
+    
+</div>
+{% endblock %}
